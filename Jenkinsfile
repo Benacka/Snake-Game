@@ -1,4 +1,4 @@
- node('ubuntu-Appserver-3120')
+ node('ubuntu-Appserver-2')
 {
     def app
     stage('Cloning Git')
@@ -12,7 +12,7 @@
        agent 
        
        {
-         label 'ubuntu-Appserver-3120'
+         label 'ubuntu-Appserver-2'
        }
        
          snykSecurity(
@@ -26,11 +26,11 @@
     {
         /* This builds the actual image; 
         * This is synonymous to docker build on the command line */
-        app = docker.build("amalan06/snakegame1")
+        app = docker.build("benjast/snakegame")
     }
     stage('Post-to-dockerhub')
     {
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_credentials')
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_credentials2')
         {
            
          app.push("latest")
