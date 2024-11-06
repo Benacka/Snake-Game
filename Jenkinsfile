@@ -25,17 +25,16 @@
        agent {
            label 'ubuntu-Appserver-2'
        }
-        steps {
-            script{
-                def scannerHome = tool 'SonarQubeScanner'
-                withSonarQubeEnv('sonarqube') {
-                    sh "${scannerHome}/bin/sonar-scanner \
-                        -Dsonar.projectKey=snakeapp \
-                        -Dsonar.sources=."
-                }
-            }
-        }
-     }
+           script{
+               def scannerHome = tool 'SonarQubeScanner'
+               withSonarQubeEnv('sonarqube') {
+                   sh "${scannerHome}/bin/sonar-scanner \
+                       -Dsonar.projectKey=snakeapp \
+                       -Dsonar.sources=."
+               }
+           }
+       }
+    }
     stage('Build-and-Tag')
     {
         /* This builds the actual image; 
