@@ -34,7 +34,7 @@
                }
            }
        }
-     }
+     
     stage('Build-and-Tag')
     {
         /* This builds the actual image; 
