@@ -7,7 +7,7 @@
     checkout scm
     }
 
-      /*stage('SCA-SAST-SNYK-TEST') 
+      stage('SCA-SAST-SNYK-TEST') 
       {
        agent 
        
@@ -20,7 +20,7 @@
             snykTokenId: 'SNYKID',
             severity: 'critical'
          )
-       }*/
+       }
      
     stage('Build-and-Tag')
     {
@@ -32,7 +32,6 @@
     {
         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_credentials2')
         {
-           
          app.push("latest")
         }
     }
