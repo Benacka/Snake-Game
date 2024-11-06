@@ -39,7 +39,7 @@
     {
         /* This builds the actual image; 
         * This is synonymous to docker build on the command line */
-        app = docker.build("benjast/snakegame")
+        app = docker.build("benjast/sonarsnakegame")
     }
     stage('Post-to-dockerhub')
     {
